@@ -15,3 +15,7 @@ import maxentpy
 maxentpy.score5('cagGTAAGT')
 maxentpy.score3('ttccaaacgaacttttgtAGgga')
 ```
+
+## License
+
+The [MIT License](https://opensource.org/licenses/MIT)
