@@ -5,7 +5,7 @@ Modified from MaxEntScan perl scripts developed by Gene Yeo and Christopher
 Burge
 Yeo G and Burge C. Maximum entropy modeling of short sequence motifs with
 applications to RNA splicing signals. Journal of Computational Biology,
-2004; 11(2-3):377-94.
+2004, 11:377-94.
 '''
 
 import math
@@ -24,6 +24,12 @@ def score5(fa):
     Calculate 5' splice site strength
     (exon)XXX|XXXXXX(intron)
               **
+    >>> round(score5('cagGTAAGT'), 2)
+    10.86
+    >>> round(score5('gagGTAAGT'), 2)
+    11.08
+    >>> round(score5('taaATAAGT'), 2)
+    -0.12
     '''
     # for key elements
     key = fa[3:5].upper()
@@ -49,6 +55,12 @@ def score3(fa):
     Calculate 3' splice site strength
     (intron)XXXXXXXXXXXXXXXXXXXX|XXX(exon)
                               **
+    >>> round(score3('ttccaaacgaacttttgtAGgga'), 2)
+    2.89
+    >>> round(score3('tgtctttttctgtgtggcAGtgg'), 2)
+    8.19
+    >>> round(score3('ttctctcttcagacttatAGcaa'), 2)
+    -0.08
     '''
     # for key elements
     key = fa[18:20].upper()
@@ -82,3 +94,8 @@ def hashseq(fa):
     table = maketrans('ACGT', '0123')
     seq = fa.translate(table)
     return sum(int(j) * 4**(len(seq) - i - 1) for i, j in enumerate(seq))
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
