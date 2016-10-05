@@ -9,9 +9,22 @@ It contains two functions. `score5` is adapt from [MaxEntScan::score5ss](http://
 ## Examples
 
 ```python
-import maxentpy
-maxentpy.score5('cagGTAAGT')  # 3 bases in exon and 6 bases in intron
-maxentpy.score3('ttccaaacgaacttttgtAGgga')  # 20 bases in the intron and 3 base in the exon
+>>> from maxentpy import score5, score3
+>>> score5('cagGTAAGT')  # 3 bases in exon and 6 bases in intron
+10.858313101356437
+>>> score3('ttccaaacgaacttttgtAGgga')  # 20 bases in the intron and 3 base in the exon
+10.858313101356437
+>>> from maxentpy import load_matrix5, load_matrix3  # preloading matrix will speed up
+>>> timeit score5('cagGTAAGT')
+10 loops, best of 3: 23.2 ms per loop
+>>> matrix5 = load_matrix5()
+>>> timeit score5('cagGTAAGT', matrix=matrix5)
+100000 loops, best of 3: 2.56 µs per loop
+>>> timeit score3('ttccaaacgaacttttgtAGgga')
+1 loop, best of 3: 260 ms per loop
+>>> matrix3 = load_matrix3()
+>>> timeit score3('ttccaaacgaacttttgtAGgga', matrix=matrix3)
+10000 loops, best of 3: 99.4 µs per loop
 ```
 ## Citation
 
