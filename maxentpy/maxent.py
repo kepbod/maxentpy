@@ -10,7 +10,10 @@ applications to RNA splicing signals. Journal of Computational Biology,
 
 import math
 from collections import defaultdict
-from string import maketrans
+try:
+    from string import maketrans
+except ImportError:
+    maketrans = str.maketrans
 import os.path
 
 

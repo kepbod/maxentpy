@@ -1,7 +1,11 @@
 language: python
 python:
   - "2.7"
+  - "3.5"
 install:
+  - pip install python-coveralls
   - python setup.py install
 script:
-  - nosetests --with-doctest -v
+  - nosetests --with-doctest -v --with-coverage --cover-package=maxentpy
+after_success:
+    - coveralls
