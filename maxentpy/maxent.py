@@ -8,6 +8,7 @@ applications to RNA splicing signals. Journal of Computational Biology,
 2004, 11:377-94.
 '''
 
+import sys
 import math
 from collections import defaultdict
 try:
@@ -45,6 +46,9 @@ def score5(fa, matrix=None):
     >>> round(score5('cagGTAAGT', matrix=matrix), 2)
     10.86
     '''
+    # check length of fa
+    if len(fa) != 9:
+        sys.exit('Wrong length of fa!')
     # check matrix
     if not matrix:
         matrix = load_matrix5()
@@ -83,6 +87,9 @@ def score3(fa, matrix=None):
     >>> round(score3('ttccaaacgaacttttgtAGgga', matrix=matrix), 2)
     2.89
     '''
+    # check length of fa
+    if len(fa) != 23:
+        sys.exit('Wrong length of fa!')
     # check matrix
     if not matrix:
         matrix = load_matrix3()
