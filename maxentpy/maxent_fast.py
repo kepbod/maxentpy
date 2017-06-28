@@ -10,8 +10,8 @@ applications to RNA splicing signals. Journal of Computational Biology,
 
 import sys
 import math
-import msgpack
 from maxentpy._hashseq import hashseq
+import msgpack
 try:
     from string import maketrans
 except ImportError:

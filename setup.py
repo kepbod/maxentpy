@@ -9,6 +9,7 @@ from Cython.Build import cythonize
 ext_modules = [Extension('maxentpy._hashseq', ['maxentpy/_hashseq.pyx'])]
 
 setup(name='maxentpy',
+      version='0.0.1',
       description='Calculate splice site strength',
       url='https://github.com/kepbod/maxentpy',
       packages=['maxentpy'],
