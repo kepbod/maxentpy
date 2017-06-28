@@ -12,6 +12,6 @@ install:
   - python setup.py install
 script:
   - python setup.py build_ext --inplace
-  - pytest --verbose --doctest-modules --flake8 --cov=maxentpy
+  - pytest --verbose --doctest-modules --flake8 --cov=maxentpy maxentpy
 after_success:
     - coveralls

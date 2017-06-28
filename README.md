@@ -7,26 +7,58 @@ maxentpy is a python wrapper for MaxEntScan to calculate splice site strength.
 
 It contains two functions. `score5` is adapt from [MaxEntScan::score5ss](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) to score 5' splice sites. `score3` is adapt from [MaxEntScan::score3ss](http://genes.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq_acc.html) to score 3' splice sites. They only use Maximum Entropy Model to score.
 
+## Prerequisites
+
+* Cython
+* msgpack-python
+
 ## Examples
 
 ```python
->>> from maxentpy import score5, score3
->>> score5('cagGTAAGT')  # 3 bases in exon and 6 bases in intron
+>>> from maxentpy import maxent  # use normal version of maxent
+>>> maxent.score5('cagGTAAGT')  # 3 bases in exon and 6 bases in intron
 10.858313101356437
->>> score3('ttccaaacgaacttttgtAGgga')  # 20 bases in the intron and 3 base in the exon
-10.858313101356437
->>> from maxentpy import load_matrix5, load_matrix3  # preloading matrix will speed up
->>> timeit score5('cagGTAAGT')
-10 loops, best of 3: 23.2 ms per loop
+>>> maxent.score3('ttccaaacgaacttttgtAGgga')  # 20 bases in the intron and 3 base in the exon
+2.8867730651152104
+>>> from maxentpy.maxent import load_matrix5, load_matrix3  # preloading matrix will speed up
+>>> timeit maxent.score5('cagGTAAGT')
+10 loops, best of 3: 23.5 ms per loop
 >>> matrix5 = load_matrix5()
->>> timeit score5('cagGTAAGT', matrix=matrix5)
-100000 loops, best of 3: 2.56 µs per loop
->>> timeit score3('ttccaaacgaacttttgtAGgga')
-1 loop, best of 3: 260 ms per loop
+>>> timeit maxent.score5('cagGTAAGT', matrix=matrix5)
+100000 loops, best of 3: 3.27 µs per loop
+>>> timeit maxent.score3('ttccaaacgaacttttgtAGgga')
+1 loop, best of 3: 259 ms per loop
 >>> matrix3 = load_matrix3()
->>> timeit score3('ttccaaacgaacttttgtAGgga', matrix=matrix3)
-10000 loops, best of 3: 99.4 µs per loop
+>>> timeit maxent.score3('ttccaaacgaacttttgtAGgga', matrix=matrix3)
+10000 loops, best of 3: 103 µs per loop
+>>> from maxentpy import maxent_fast  # fast version could further speed up
+>>> timeit maxent_fast.score5('cagGTAAGT')
+100 loops, best of 3: 5.04 ms per loop
+>>> timeit maxent_fast.score3('ttccaaacgaacttttgtAGgga')
+100 loops, best of 3: 9.3 ms per loop
+>>> from maxentpy.maxent_fast import load_matrix  # support preloading matrix
+>>> matrix5 = load_matrix(5)
+>>> timeit maxent_fast.score5('cagGTAAGT', matrix=matrix5)
+100000 loops, best of 3: 3.61 µs per loop
+>>> matrix3 = load_matrix(3)
+>>> timeit maxent_fast.score3('ttccaaacgaacttttgtAGgga', matrix=matrix3)
+100000 loops, best of 3: 7.76 µs per loop
 ```
+
+## Benchmark
+
+### score5
+
+|              |maxentpy.maxent|maxentpy.maxent_fast|
+|without matrix|     23.5 ms   |   5.04 ms          |
+|with matrix   |     3.27 µs   |   3.61 µs          |
+
+### score3
+
+|              |maxentpy.maxent|maxentpy.maxent_fast|
+|without matrix|     259 ms    |   9.3 ms           |
+|with matrix   |     103 µs    |   7.76 µs          |
+
 ## Citation
 
 Yeo G, Burge CB. Maximum entropy modeling of short sequence motifs with applications to RNA splicing signals. Journal of Computational Biology. 2004, 11:377-94.
