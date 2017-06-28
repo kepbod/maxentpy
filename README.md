@@ -49,15 +49,17 @@ It contains two functions. `score5` is adapt from [MaxEntScan::score5ss](http://
 
 ### score5
 
-|              |maxentpy.maxent|maxentpy.maxent_fast|
-|without matrix|     23.5 ms   |   5.04 ms          |
-|with matrix   |     3.27 µs   |   3.61 µs          |
+  score5      |maxentpy.maxent|maxentpy.maxent_fast
+--------------|---------------|--------------------
+without matrix|     23.5 ms   |   5.04 ms          
+with matrix   |     3.27 µs   |   3.61 µs          
 
 ### score3
 
-|              |maxentpy.maxent|maxentpy.maxent_fast|
-|without matrix|     259 ms    |   9.3 ms           |
-|with matrix   |     103 µs    |   7.76 µs          |
+ score3       |maxentpy.maxent|maxentpy.maxent_fast
+--------------|---------------|--------------------
+without matrix|     259 ms    |   9.3 ms           
+with matrix   |     103 µs    |   7.76 µs          
 
 ## Citation
 
