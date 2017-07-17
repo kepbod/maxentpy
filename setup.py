@@ -3,10 +3,9 @@
 
 from setuptools import setup
 from setuptools.extension import Extension
-from Cython.Build import cythonize
 
 
-ext_modules = [Extension('maxentpy._hashseq', ['maxentpy/_hashseq.pyx'])]
+ext_modules = [Extension('maxentpy._hashseq', ['maxentpy/_hashseq.c'])]
 
 setup(name='maxentpy',
       version='0.0.1',
@@ -14,6 +13,6 @@ setup(name='maxentpy',
       url='https://github.com/kepbod/maxentpy',
       packages=['maxentpy'],
       package_data={'maxentpy': ['data/*']},
-      ext_modules=cythonize(ext_modules),
-      install_requires=['msgpack-python', 'Cython']
+      ext_modules=ext_modules,
+      install_requires=['msgpack-python']
       )
