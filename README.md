@@ -1,6 +1,6 @@
 # maxentpy
 
-[![Build Status](https://travis-ci.org/kepbod/maxentpy.svg?branch=master)](https://travis-ci.org/kepbod/maxentpy)
+[![Build](https://github.com/kepbod/maxentpy/actions/workflows/python-package.yml/badge.svg?branch=master)](https://github.com/kepbod/maxentpy/actions?query=workflow%3ABuild)
 [![Coverage Status](https://coveralls.io/repos/github/kepbod/maxentpy/badge.svg)](https://coveralls.io/github/kepbod/maxentpy)
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg?style=flat-square)](http://bioconda.github.io/recipes/maxentpy/README.html)
 [![download](https://anaconda.org/bioconda/maxentpy/badges/downloads.svg)](https://anaconda.org/bioconda/maxentpy)
