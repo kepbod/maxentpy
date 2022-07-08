@@ -27,9 +27,9 @@ jobs:
         miniforge-version: 4.10.1-5
         use-mamba: true
     - name: Test with pytest
-      shell: bash -l {0}
-      run: |
-          pytest --verbose --doctest-modules --flake8 --cov=maxentpy maxentpy
+      run: | 
+        python setup.py build_ext --inplace
+        pytest --verbose --doctest-modules --flake8 --cov=maxentpy maxentpy
     - name: Pytest coverage comment
       uses: MishaKav/pytest-coverage-comment@main
       with:
