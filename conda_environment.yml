@@ -1,4 +1,4 @@
-name: seqlib
+name: maxentpy
 channels:
   - conda-forge
   - defaults
