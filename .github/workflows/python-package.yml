@@ -21,7 +21,7 @@ jobs:
     - name: Set up conda environment
       uses: conda-incubator/setup-miniconda@v2
       with:
-        activate-environment: seqlib
+        activate-environment: maxentpy
         environment-file: conda_environment.yml
         miniforge-variant: Mambaforge
         miniforge-version: 4.10.1-5
