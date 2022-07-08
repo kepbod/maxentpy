@@ -106,7 +106,8 @@ def score3(fa, matrix=None):
 def load_matrix(d):
     matrix_f = os.path.join(dir_path, 'data/matrix%d.msg' % d)
     with open(matrix_f, 'rb') as f:
-        matrix = msgpack.unpackb(f.read(), raw=False)
+        matrix = msgpack.unpackb(f.read(), raw=False, use_list=False,
+                                 strict_map_key=False)
     return matrix
 
 
