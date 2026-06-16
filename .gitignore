@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Cython-generated sources (built from .pyx at install time)
+maxentpy/_hashseq.c
+
 # Distribution / packaging
 .Python
 env/
@@ -90,3 +93,6 @@ ENV/
 
 # Others
 .DS_Store
+# pixi environments
+.pixi/*
+!.pixi/config.toml
