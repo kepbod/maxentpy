@@ -24,7 +24,7 @@ jobs:
         python-version: '3.x'
     - name: Install dependencies
       run: |
-        pip install msgpack pytest pytest-cov flake8 coveralls
+        pip install setuptools msgpack pytest pytest-cov flake8 coveralls
     - name: Test with pytest
       run: |
         python setup.py build_ext --inplace
