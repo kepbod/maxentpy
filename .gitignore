@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+maxentpy/_hashseq.c
 
 # Distribution / packaging
 .Python

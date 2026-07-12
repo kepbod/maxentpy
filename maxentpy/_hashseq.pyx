@@ -17,5 +17,5 @@ cpdef int hashseq(str fa):
     cdef int val
     for i in range(length):
         val = base_to_int(ord(fa[i]))
-        hashseq += val * <int>(4**(length - i - 1))
+        hashseq += val << (2 * (length - i - 1))
     return hashseq
