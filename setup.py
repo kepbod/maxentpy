@@ -14,5 +14,5 @@ setup(name='maxentpy',
       packages=['maxentpy'],
       package_data={'maxentpy': ['data/*']},
       ext_modules=ext_modules,
-      install_requires=['msgpack-python']
+      install_requires=['msgpack']
       )

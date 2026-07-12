@@ -3,8 +3,8 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - msgpack-python
+  - msgpack
   - pytest
   - pytest-cov
-  - pytest-flake8
+  - flake8
   - coveralls
