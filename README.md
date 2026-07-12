@@ -11,8 +11,34 @@ It contains two functions. `score5` is adapt from [MaxEntScan::score5ss](http://
 
 ## Prerequisites
 
-* Cython
-* msgpack-python
+* Python 3
+* msgpack
+
+## Installation
+
+Install from PyPI or a source checkout with `pip`:
+
+```bash
+python -m pip install maxentpy
+```
+
+```bash
+python -m pip install .
+```
+
+The package builds `maxentpy._hashseq` from `maxentpy/_hashseq.pyx` at install
+time. `pyproject.toml` declares the build requirements, so build frontends such
+as `pip` will install a compatible `Cython>=3.0` automatically in an isolated
+build environment.
+
+If you are developing locally and want to build the extension in place, install
+the development dependencies first so `setup.py build_ext --inplace` can import
+Cython:
+
+```bash
+python -m pip install 'Cython>=3.0' pytest msgpack
+python setup.py build_ext --inplace
+```
 
 ## Examples
 

@@ -3,9 +3,10 @@
 
 from setuptools import setup
 from setuptools.extension import Extension
+from Cython.Build import cythonize
 
 
-ext_modules = [Extension('maxentpy._hashseq', ['maxentpy/_hashseq.c'])]
+ext_modules = cythonize([Extension('maxentpy._hashseq', ['maxentpy/_hashseq.pyx'])])
 
 setup(name='maxentpy',
       version='0.0.3',

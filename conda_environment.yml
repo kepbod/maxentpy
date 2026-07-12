@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
+  - cython >=3.0
   - msgpack
   - pytest
   - pytest-cov
